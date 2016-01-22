@@ -13,7 +13,7 @@ public abstract class NetworkSocket implements Closeable {
     ServiceLoader<NetworkSocketProvider> sl = ServiceLoader.load(NetworkSocketProvider.class);
     Iterator<NetworkSocketProvider> iter = sl.iterator();
     if (!iter.hasNext())
-    throw new RuntimeException("No service providers found!");
+      throw new RuntimeException("No service providers found!");
     NetworkSocketProvider provider = iter.next();
     return provider.openNetworkSocket();
   }
